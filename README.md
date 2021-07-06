@@ -19,7 +19,29 @@ Other languages have the concept of a Tuple built into them, which is an in-plac
 ****How to add the dependency
 
 ## Usage
-*****How to use your library 
+RxTuples come as lazily evaluated FuncN and its main use case is alongside the combineLatest, withLatestFrom, zip, and zipWith operators.
+
+Zip a list element into a pair with their position:
+
+    Observable.zip(Observable.from(myStringList), Observable.range(0, myStringList.size()), 
+                   RxTuples.<String, Integer>toPair());
+
+Merge the value of several hot observables:
+
+    Observable.combineLatest(networkSubject(), bluetoothSubject(), compassSubject(), 
+                             RxTuples.<NetworkStatus, BluetoothState, CompassPosition>toTriplet());
+
+Get the previous element from a sequence alongside the current one:
+
+    Observable.zip(compassSubject(), compassSubject().skip(1), 
+                   RxTuples.<CompassPosition, CompassPosition>toPair());
+
+or more complicated cases
+
+    Observable.just(Quintet.with(1, 2, 3, 4, 5))
+              .zipWith(
+                    Observable.just(Triplet.with(6, 7, 8)),
+                    RxTuples.<Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> toOctetFromQuintet());
 
 
 License
