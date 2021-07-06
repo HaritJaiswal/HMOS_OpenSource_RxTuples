@@ -21,6 +21,10 @@
     {
       "name": "create",
       "value": "Create"
+    },
+    {
+      "name": "StringValue",
+      "value": "String value"
     }
   ]
 }
