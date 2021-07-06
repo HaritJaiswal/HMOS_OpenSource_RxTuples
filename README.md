@@ -16,7 +16,8 @@ This library built for HMOS enviroment has been inspired by [pakoito\\RxTuples](
 *****Key Features added by this library
 
 ## Dependency
-****How to add the dependency
+
+Add as a dependency to your `build.gradle` file.
 
 ## Usage
 RxTuples come as lazily evaluated FuncN and its main use case is alongside the combineLatest, withLatestFrom, zip, and zipWith operators.
