@@ -1,17 +1,15 @@
 # RxTuples
 RxTuples is a library to smooth RxJava usage by adding simple Tuple creation functions. This library is built for HMOS environment.
 
-### Rationale
-
-Quite often when using RxJava you find the need to forward a value alongside the result of an operation, combine several values, or simply adding an external value to the current internal state of the chain. For this you either create ad-hoc types that may only be used locally, which is inefficient.
-
-Other languages have the concept of a Tuple built into them, which is an in-place list of values. Lots of Java libraries implement their own concept of Tuple, being a Pair, a Point, or VecX types. This library uses [javatuples](http://www.javatuples.org/) in an attempt to unify them[.](https://imgs.xkcd.com/comics/standards.png) Javatuples are all "typesafe, immutable, iterable, serializable, comparable" classes  ranging from 1 to 10 elements.
-
 # Source
 This library has been inspired by [pakoito\\RxTuples](https://github.com/pakoito/RxTuples) version 1.0, released on December 8, 2015.
 
 ## Features
-*****Key Features added by this library
+Quite often when using RxJava you find the need to forward a value alongside the result of an operation, combine several values, or simply adding an external value to the current internal state of the chain. For this you either create ad-hoc types that may only be used locally, which is inefficient.
+
+Other languages have the concept of a Tuple built into them, which is an in-place list of values. Lots of Java libraries implement their own concept of Tuple, being a Pair, a Point, or VecX types. This library uses [javatuples](http://www.javatuples.org/) in an attempt to unify them. Javatuples are all "typesafe, immutable, iterable, serializable, comparable" classes  ranging from 1 to 10 elements. 
+
+This library has functions to combine multiple Observable objects into appropriate Pair, Triplet, Quartet, Quintet, Sextet, Septet, or Octet.
 
 ## Dependency
 
