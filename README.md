@@ -21,8 +21,6 @@ Other languages have the concept of a Tuple built into them, which is an in-plac
 ## Usage
 *****How to use your library 
 
-## Future work
-*****Current unsupported features are something which we will implement in future, if there are no features dont add this
 
 License
 --------
