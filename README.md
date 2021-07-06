@@ -1,4 +1,4 @@
-# *****Name of library
+# RxTuples
 *****content here describing library and its usage
 
 # Source
@@ -18,4 +18,9 @@
 
 License
 --------
-****** If the Original readME has license add here else we can remove this section
+Copyright (c) pakoito 2015
+Copyright (C) 2020-21 Application Library Engineering Group
+
+The Apache Software License, Version 2.0
+
+See LICENSE.md
