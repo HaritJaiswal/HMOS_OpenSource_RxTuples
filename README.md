@@ -10,7 +10,7 @@ Quite often when using RxJava you find the need to forward a value alongside the
 Other languages have the concept of a Tuple built into them, which is an in-place list of values. Lots of Java libraries implement their own concept of Tuple, being a Pair, a Point, or VecX types. This library uses [javatuples](http://www.javatuples.org/) in an attempt to unify them[.](https://imgs.xkcd.com/comics/standards.png) Javatuples are all "typesafe, immutable, iterable, serializable, comparable" classes  ranging from 1 to 10 elements.
 
 # Source
-This library built for HMOS enviroment has been inspired by [pakoito\\RxTuples](https://github.com/pakoito/RxTuples) version 1.0.
+This library built for HMOS enviroment has been inspired by [pakoito\\RxTuples](https://github.com/pakoito/RxTuples) version 1.0 released on December 8, 2015.
 
 ## Features
 *****Key Features added by this library
