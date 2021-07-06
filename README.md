@@ -18,7 +18,7 @@
 
 License
 --------
-Copyright (c) pakoito 2015
+Copyright (c) pakoito 2015 \
 Copyright (C) 2020-21 Application Library Engineering Group
 
 The Apache Software License, Version 2.0
