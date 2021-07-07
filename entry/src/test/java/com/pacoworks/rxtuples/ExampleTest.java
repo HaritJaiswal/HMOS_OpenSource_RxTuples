@@ -16,6 +16,7 @@
  */
 package com.pacoworks.rxtuples;
 
+import com.pacoworks.rxtuples.RxTuples;
 import org.junit.Test;
 import org.javatuples.Octet;
 import org.javatuples.Pair;
@@ -28,6 +29,7 @@ import rx.Observable;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 

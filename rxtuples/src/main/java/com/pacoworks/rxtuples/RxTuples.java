@@ -38,202 +38,244 @@ public final class RxTuples {
         // empty constructor
     }
 
-    /** Pair. **/
-    protected static <T, U> rx.functions.Func2<T, U, Pair<T, U>> toPair() {
+    /**
+     * toPair().
+     *
+     * @param <T> an Observable object
+     * @param <U> an Observable object
+     * @return Pair
+     */
+    public static <T, U> rx.functions.Func2<T, U, Pair<T, U>> toPair() {
         return Pair::with;
     }
 
-    /** Triplet. **/
-    protected static <A, B, C> Func3<A, B, C, Triplet<A, B, C>> toTriplet() {
+    /**
+     * toTriplet().
+     *
+     * @param <A> an Observable object
+     * @param <B> an Observable object
+     * @param <C> an Observable object
+     * @return Triplet
+     */
+    public static <A, B, C> Func3<A, B, C, Triplet<A, B, C>> toTriplet() {
         return Triplet::with;
     }
 
-    protected static <A, B, T> rx.functions.Func2<T, Pair<A, B>, Triplet<T, A, B>> toTripletFromSingle() {
+    public static <A, B, T> rx.functions.Func2<T, Pair<A, B>, Triplet<T, A, B>> toTripletFromSingle() {
         return (t, objects) -> Triplet.with(t, objects.getValue0(), objects.getValue1());
     }
 
-    protected static <A, B, T> Func2<Pair<A, B>, T, Triplet<A, B, T>> toTripletFromPair() {
+    public static <A, B, T> Func2<Pair<A, B>, T, Triplet<A, B, T>> toTripletFromPair() {
         return (objects, t) -> Triplet.with(objects.getValue0(), objects.getValue1(), t);
     }
 
-    /** Quartet. **/
-    protected static <A, B, C, D> Func4<A, B, C, D, Quartet<A, B, C, D>> toQuartet() {
+    /**
+     * toQuartet().
+     *
+     * @param <A> an Observable object
+     * @param <B> an Observable object
+     * @param <C> an Observable object
+     * @param <D> an Observable object
+     * @return Quartet
+     */
+    public static <A, B, C, D> Func4<A, B, C, D, Quartet<A, B, C, D>> toQuartet() {
         return Quartet::with;
     }
 
-    protected static <A, B, C, T> Func2<T, Triplet<A, B, C>, Quartet<T, A, B, C>> toQuartetFromSingle() {
+    public static <A, B, C, T> Func2<T, Triplet<A, B, C>, Quartet<T, A, B, C>> toQuartetFromSingle() {
         return (t, objects) -> Quartet.with(t, objects.getValue0(), objects.getValue1(),
                 objects.getValue2());
     }
 
-    protected static <A, B, C, D> Func2<Pair<A, B>, Pair<C, D>, Quartet<A, B, C, D>> toQuartetFromPair() {
+    public static <A, B, C, D> Func2<Pair<A, B>, Pair<C, D>, Quartet<A, B, C, D>> toQuartetFromPair() {
         return (objects, objects2) -> Quartet.with(objects.getValue0(), objects.getValue1(), objects2.getValue0(),
                 objects2.getValue1());
     }
 
-    protected static <A, B, C, T> Func2<Triplet<A, B, C>, T, Quartet<A, B, C, T>> toQuartetFromTriplet() {
+    public static <A, B, C, T> Func2<Triplet<A, B, C>, T, Quartet<A, B, C, T>> toQuartetFromTriplet() {
         return (objects, t) -> Quartet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 t);
     }
 
-    /** Quintet. **/
-    protected static <A, B, C, D, E> Func5<A, B, C, D, E, Quintet<A, B, C, D, E>> toQuintet() {
+    /**
+     * toQuintet().
+     *
+     * @param <A> an Observable object
+     * @param <B> an Observable object
+     * @param <C> an Observable object
+     * @param <D> an Observable object
+     * @param <E> an Observable object
+     * @return Quintet
+     */
+    public static <A, B, C, D, E> Func5<A, B, C, D, E, Quintet<A, B, C, D, E>> toQuintet() {
         return Quintet::with;
     }
 
-    protected static <A, B, C, D, T> Func2<T, Quartet<A, B, C, D>, Quintet<T, A, B, C, D>> toQuintetFromSingle() {
+    public static <A, B, C, D, T> Func2<T, Quartet<A, B, C, D>, Quintet<T, A, B, C, D>> toQuintetFromSingle() {
         return (t, objects) -> Quintet.with(t, objects.getValue0(), objects.getValue1(),
                 objects.getValue2(), objects.getValue3());
     }
 
-    protected static <A, B, C, D, E> Func2<Pair<A, B>, Triplet<C, D, E>, Quintet<A, B, C, D, E>> toQuintetFromPair() {
+    public static <A, B, C, D, E> Func2<Pair<A, B>, Triplet<C, D, E>, Quintet<A, B, C, D, E>> toQuintetFromPair() {
         return (objects, objects2) -> Quintet.with(objects.getValue0(), objects.getValue1(), objects2.getValue0(),
                 objects2.getValue1(), objects2.getValue2());
     }
 
-    protected static <A, B, C, D, E> Func2<Triplet<A, B, C>, Pair<D, E>, Quintet<A, B, C, D, E>>
+    public static <A, B, C, D, E> Func2<Triplet<A, B, C>, Pair<D, E>, Quintet<A, B, C, D, E>>
         toQuintetFromTriplet() {
         return (objects, objects2) -> Quintet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects2.getValue0(), objects2.getValue1());
     }
 
-    protected static <A, B, C, D, T> Func2<Quartet<A, B, C, D>, T, Quintet<A, B, C, D, T>> toQuintetFromQuartet() {
+    public static <A, B, C, D, T> Func2<Quartet<A, B, C, D>, T, Quintet<A, B, C, D, T>> toQuintetFromQuartet() {
         return (objects, t) -> Quintet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), t);
     }
 
     /** Sextet. **/
-    protected static <A, B, C, D, E, F> Func6<A, B, C, D, E, F, Sextet<A, B, C, D, E, F>> toSextet() {
+    public static <A, B, C, D, E, F> Func6<A, B, C, D, E, F, Sextet<A, B, C, D, E, F>> toSextet() {
         return Sextet::with;
     }
 
-    protected static <A, B, C, D, E, T> Func2<T, Quintet<A, B, C, D, E>, Sextet<T, A, B, C, D, E>>
+    public static <A, B, C, D, E, T> Func2<T, Quintet<A, B, C, D, E>, Sextet<T, A, B, C, D, E>>
         toSextetFromSingle() {
         return (t, objects) -> Sextet.with(t, objects.getValue0(), objects.getValue1(),
                 objects.getValue2(), objects.getValue3(), objects.getValue4());
     }
 
-    protected static <A, B, C, D, E, F> Func2<Pair<A, B>, Quartet<C, D, E, F>, Sextet<A, B, C, D, E, F>>
+    public static <A, B, C, D, E, F> Func2<Pair<A, B>, Quartet<C, D, E, F>, Sextet<A, B, C, D, E, F>>
         toSextetFromPair() {
         return (objects, objects2) -> Sextet.with(objects.getValue0(), objects.getValue1(), objects2.getValue0(),
                 objects2.getValue1(), objects2.getValue2(), objects2.getValue3());
     }
 
-    protected static <A, B, C, D, E, F> Func2<Triplet<A, B, C>, Triplet<D, E, F>, Sextet<A, B, C, D, E, F>>
+    public static <A, B, C, D, E, F> Func2<Triplet<A, B, C>, Triplet<D, E, F>, Sextet<A, B, C, D, E, F>>
         toSextetFromTriplet() {
         return (objects, objects2) -> Sextet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects2.getValue0(), objects2.getValue1(), objects2.getValue2());
     }
 
-    protected static <A, B, C, D, E, F> Func2<Quartet<A, B, C, D>, Pair<E, F>, Sextet<A, B, C, D, E, F>>
+    public static <A, B, C, D, E, F> Func2<Quartet<A, B, C, D>, Pair<E, F>, Sextet<A, B, C, D, E, F>>
         toSextetFromQuartet() {
         return (objects, objects2) -> Sextet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects2.getValue0(), objects2.getValue1());
     }
 
-    protected static <A, B, C, D, E, T> Func2<Quintet<A, B, C, D, E>, T, Sextet<A, B, C, D, E, T>>
+    public static <A, B, C, D, E, T> Func2<Quintet<A, B, C, D, E>, T, Sextet<A, B, C, D, E, T>>
         toSextetFromQuintet() {
         return (objects, t) -> Sextet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), t);
     }
 
     /** Septet. **/
-    protected static <A, B, C, D, E, F, G> Func7<A, B, C, D, E, F, G, Septet<A, B, C, D, E, F, G>>
+    public static <A, B, C, D, E, F, G> Func7<A, B, C, D, E, F, G, Septet<A, B, C, D, E, F, G>>
         toSeptet() {
         return Septet::with;
     }
 
-    protected static <A, B, C, D, E, F, T> Func2<T, Sextet<A, B, C, D, E, F>, Septet<T, A, B, C, D, E, F>>
+    public static <A, B, C, D, E, F, T> Func2<T, Sextet<A, B, C, D, E, F>, Septet<T, A, B, C, D, E, F>>
         toSeptetFromSingle() {
         return (t, objects) -> Septet.with(t, objects.getValue0(), objects.getValue1(),
                 objects.getValue2(), objects.getValue3(), objects.getValue4(),
                 objects.getValue5());
     }
 
-    protected static <A, B, C, D, E, F, G> Func2<Pair<A, B>, Quintet<C, D, E, F, G>, Septet<A, B, C, D, E, F, G>>
+    public static <A, B, C, D, E, F, G> Func2<Pair<A, B>, Quintet<C, D, E, F, G>, Septet<A, B, C, D, E, F, G>>
         toSeptetFromPair() {
         return (objects, objects2) -> Septet.with(objects.getValue0(), objects.getValue1(), objects2.getValue0(),
                 objects2.getValue1(), objects2.getValue2(), objects2.getValue3(),
                 objects2.getValue4());
     }
 
-    protected static <A, B, C, D, E, F, G> Func2<Triplet<A, B, C>, Quartet<D, E, F, G>, Septet<A, B, C, D, E, F, G>>
+    public static <A, B, C, D, E, F, G> Func2<Triplet<A, B, C>, Quartet<D, E, F, G>, Septet<A, B, C, D, E, F, G>>
         toSeptetFromTriplet() {
         return (objects, objects2) -> Septet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects2.getValue0(), objects2.getValue1(), objects2.getValue2(),
                 objects2.getValue3());
     }
 
-    protected static <A, B, C, D, E, F, G> Func2<Quartet<A, B, C, D>, Triplet<E, F, G>, Septet<A, B, C, D, E, F, G>>
+    public static <A, B, C, D, E, F, G> Func2<Quartet<A, B, C, D>, Triplet<E, F, G>, Septet<A, B, C, D, E, F, G>>
         toSeptetFromQuartet() {
         return (objects, objects2) -> Septet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects2.getValue0(), objects2.getValue1(),
                 objects2.getValue2());
     }
 
-    protected static <A, B, C, D, E, F, G> Func2<Quintet<A, B, C, D, E>, Pair<F, G>, Septet<A, B, C, D, E, F, G>>
+    public static <A, B, C, D, E, F, G> Func2<Quintet<A, B, C, D, E>, Pair<F, G>, Septet<A, B, C, D, E, F, G>>
         toSeptetFromQuintet() {
         return (objects, objects2) -> Septet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), objects2.getValue0(),
                 objects2.getValue1());
     }
 
-    protected static <A, B, C, D, E, F, T> Func2<Sextet<A, B, C, D, E, F>, T, Septet<A, B, C, D, E, F, T>>
+    public static <A, B, C, D, E, F, T> Func2<Sextet<A, B, C, D, E, F>, T, Septet<A, B, C, D, E, F, T>>
         toSeptetFromSextet() {
         return (objects, t) -> Septet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), objects.getValue5(), t);
     }
 
-    /** Octet. **/
-    protected static <A, B, C, D, E, F, G, H> Func8<A, B, C, D, E, F, G, H, Octet<A, B, C, D, E, F, G, H>>
+    /**
+     * toOctet().
+     *
+     * @param <A> an Observable object
+     * @param <B> an Observable object
+     * @param <C> an Observable object
+     * @param <D> an Observable object
+     * @param <E> an Observable object
+     * @param <F> an Observable object
+     * @param <G> an Observable object
+     * @param <H> an Observable object
+     * @return Octet
+     */
+    public static <A, B, C, D, E, F, G, H> Func8<A, B, C, D, E, F, G, H, Octet<A, B, C, D, E, F, G, H>>
         toOctet() {
         return Octet::with;
     }
 
 
-    protected static <A, B, C, D, E, F, G, T> Func2<T, Septet<A, B, C, D, E, F, G>, Octet<T, A, B, C, D, E, F, G>>
+    public static <A, B, C, D, E, F, G, T> Func2<T, Septet<A, B, C, D, E, F, G>, Octet<T, A, B, C, D, E, F, G>>
         toOctetFromSingle() {
         return (t, objects) -> Octet.with(t, objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), objects.getValue5(),
                 objects.getValue6());
     }
 
-    protected static <A, B, C, D, E, F, G, H> Func2<Pair<A, B>, Sextet<C, D, E, F, G, H>, Octet<A, B, C, D, E, F, G, H>>
+    public static <A, B, C, D, E, F, G, H> Func2<Pair<A, B>, Sextet<C, D, E, F, G, H>, Octet<A, B, C, D, E, F, G, H>>
         toOctetFromPair() {
         return (objects, objects2) -> Octet.with(objects.getValue0(), objects.getValue1(), objects2.getValue0(),
                 objects2.getValue1(), objects2.getValue2(), objects2.getValue3(),
                 objects2.getValue4(), objects2.getValue5());
     }
 
-    protected static <A, B, C, D, E, F, G, H> Func2<Triplet<A, B, C>, Quintet<D, E, F, G, H>,
+    public static <A, B, C, D, E, F, G, H> Func2<Triplet<A, B, C>, Quintet<D, E, F, G, H>,
             Octet<A, B, C, D, E, F, G, H>> toOctetFromTriplet() {
         return (objects, objects2) -> Octet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects2.getValue0(), objects2.getValue1(), objects2.getValue2(),
                 objects2.getValue3(), objects2.getValue4());
     }
 
-    protected static <A, B, C, D, E, F, G, H> Func2<Quartet<A, B, C, D>, Quartet<E, F, G, H>,
+    public static <A, B, C, D, E, F, G, H> Func2<Quartet<A, B, C, D>, Quartet<E, F, G, H>,
             Octet<A, B, C, D, E, F, G, H>> toOctetFromQuartet() {
         return (objects, objects2) -> Octet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects2.getValue0(), objects2.getValue1(),
                 objects2.getValue2(), objects2.getValue3());
     }
 
-    protected static <A, B, C, D, E, F, G, H> Func2<Quintet<A, B, C, D, E>, Triplet<F, G, H>,
+    public static <A, B, C, D, E, F, G, H> Func2<Quintet<A, B, C, D, E>, Triplet<F, G, H>,
             Octet<A, B, C, D, E, F, G, H>> toOctetFromQuintet() {
         return (objects, objects2) -> Octet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), objects2.getValue0(),
                 objects2.getValue1(), objects2.getValue2());
     }
 
-    protected static <A, B, C, D, E, F, G, H> Func2<Sextet<A, B, C, D, E, F>, Pair<G, H>,
+    public static <A, B, C, D, E, F, G, H> Func2<Sextet<A, B, C, D, E, F>, Pair<G, H>,
             Octet<A, B, C, D, E, F, G, H>> toOctetFromSextet() {
         return (objects, objects2) -> Octet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), objects.getValue5(),
                 objects2.getValue0(), objects2.getValue1());
     }
 
-    protected static <A, B, C, D, E, F, G, T> Func2<Septet<A, B, C, D, E, F, G>, T, Octet<A, B, C, D, E, F, G, T>>
+    public static <A, B, C, D, E, F, G, T> Func2<Septet<A, B, C, D, E, F, G>, T, Octet<A, B, C, D, E, F, G, T>>
         toOctetFromSeptet() {
         return (objects, t) -> Octet.with(objects.getValue0(), objects.getValue1(), objects.getValue2(),
                 objects.getValue3(), objects.getValue4(), objects.getValue5(),
